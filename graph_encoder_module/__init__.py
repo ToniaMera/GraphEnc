@@ -1,1 +1,1 @@
-import graph_encoder_module.graphenco
+import .graphenco
