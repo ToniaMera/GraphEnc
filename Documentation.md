@@ -15,9 +15,11 @@ y: true values for training/validation. Default None
 MD: a matrix containing molecular descriptors e.g. the output of mol_descriptors(). Default None
 
 Node features that are used: atom type, atom charge, hybridization, degree, number of hydrogen atoms, stereochemistry, atom mass, is aromatic, is in ring. Each feature is transformed into one hot encoder and they are concatenated into a binary vector.
+'''
 
 TrainModel(train_data, batch_sz, epochs, Xy_eval = None, model_name = 'GraphEnc.pt')
 
+'''
 train_data: training data of Data type or the output of ToGraph.
 batch_sz: defines batch size
 epochs: number of epochs
