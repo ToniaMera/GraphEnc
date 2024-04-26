@@ -20,6 +20,8 @@ Node features that are used: atom type, atom charge, hybridization, degree, numb
 TrainModel(train_data, batch_sz, epochs, model_name, Xy_eval = None)
 
 '''
+This class automates the training and validation process of the GraphEnc model that is defined by the GNN() class (see below).
+
 train_data: training data of Data type or the output of ToGraph.
 batch_sz: defines batch size
 epochs: number of epochs
@@ -32,7 +34,13 @@ GraphEnc(X, model_name = 'GraphEnc.pt')
 '''
 X: test dataset of Data type
 model_name: the path where the trained model was stored. Default the pretrained model 'GraphEnc.pt'
-
-
 '''
+
+GNN(input_fea, input_fea2 = None)
+
+'''The model that is used in the TrainModel() pipeline. No need to define it.
+
+input_fea: number of node features
+input_fea2: number of molecular descriptors
+
 ```
