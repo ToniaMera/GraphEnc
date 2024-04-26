@@ -11,4 +11,12 @@ The addition of an encoder together with the graph nn decreases both the trainin
 <br>
 
 # How to use the model to make predictions
-## Prepare your data:
+## 1. Prepare your data:
+
+If you would like to use both the graph and the encoder model then 2 processing steps are required. First create the matrix for molecular descriptors as:
+
+MD = mol_descriptors(smiles).oned()
+
+Next create the graph data:
+
+GD = ToGraph(smiles = smiles, MD = MD).process()  
