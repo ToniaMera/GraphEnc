@@ -19,15 +19,15 @@ class ToGraph(Dataset):
 
     def process(self):
         c = 0
-        for smile, Y in zip(self.smiles, self.y):
+        for smile in self.smiles:
             mol = Chem.MolFromSmiles(smile)
             nf = self.node_features(mol)
             ei = self.edge_features(mol)
             if self.MD is not None:
                 md = self.MD[c]
-                data = Data(x = nf, edge_index = ei, y = Y, md = md)
+                data = Data(x = nf, edge_index = ei, y = self.y[c], md = md)
             else:
-                data = Data(x = nf, edge_index = ei, y = Y)
+                data = Data(x = nf, edge_index = ei, y = self.y[c])
             self.all_data.append(data)
             c+=1
             
