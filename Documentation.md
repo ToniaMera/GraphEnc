@@ -25,6 +25,7 @@ batch_sz: defines batch size
 epochs: number of epochs
 model_name: the path of the model to be saved to
 Xy_eval: validation dataset of Data type. Default None for no validation
+'''
 
 GraphEnc(X, model_name = 'GraphEnc.pt')
 
