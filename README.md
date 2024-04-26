@@ -15,7 +15,9 @@ The addition of an encoder together with the graph nn decreases both the trainin
 
 If you would like to use both the graph and the encoder model then 2 processing steps are required. First create the matrix for molecular descriptors as:
 
+```python
 MD = mol_descriptors(smiles).oned()
+```
 
 Next create the graph data:
 
