@@ -1,1 +1,1 @@
-import .graphenc
+from .graphenc import *
