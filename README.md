@@ -25,13 +25,21 @@ MD = mol_descriptors(smiles).oned()
 Next create the graph data:
 
 ```python
-GD = ToGraph(smiles = smiles, MD = MD).process()  
+GraphData = ToGraph(smiles = smiles, MD = MD).process()  
 ```
 
 Else without the encoder module:
 
 ```python
-GD = ToGraph(smiles = smiles).process()  
+GraphData = ToGraph(smiles = smiles).process()  
 ```
-## 2.
+## 2. Make predictions 
+
+The predictions are made with the pretrained model.
+
+```python
+GE = GraphEnc(Graph_Data)
+predictions = GE.predict()
+```
+
 
