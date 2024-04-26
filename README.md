@@ -48,6 +48,13 @@ MD = gr.mol_descriptors(smiles).oned()
 GraphData = gr.ToGraph(smiles = smiles, y = y, MD = MD).process()  
 ```
 
+There is also the possibility of not including the encoder submodule in which case the pipeline changes as it follows (exclude MD data):
+
+```python
+MD = gr.mol_descriptors(smiles).oned()
+GraphData = gr.ToGraph(smiles = smiles, y = y).process()  
+```
+
 ## 2. Train the model:
 
 Initialize the process:
@@ -68,6 +75,11 @@ tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_
   model_name='model name')
 training_losses = tm.train()
 ```
+
+##3. Make predictions:
+
+GE = gr.GraphEnc(test_Xy)
+pr = GE.predict()
 
 
 
