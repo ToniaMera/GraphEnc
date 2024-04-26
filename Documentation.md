@@ -11,7 +11,7 @@ ToGraph(smiles, y = None, MD = None)
 ''' Transform smiles to graph representation by using the Dataset function from pytorch geometric library.
 
 smiles: a list/numpy array/pandas series of smiles
-y: true values for training/validation. Default None
+y: true values for training/validation. Must be list or numpy array. Default None
 MD: a matrix containing molecular descriptors e.g. the output of mol_descriptors(). Default None
 
 Node features that are used: atom type, atom charge, hybridization, degree, number of hydrogen atoms, stereochemistry, atom mass, is aromatic, is in ring. Each feature is transformed into one hot encoder and they are concatenated into a binary vector.
