@@ -101,7 +101,7 @@ There is no need to explicitly define wether to train the graphenc model or only
 Use the test data and the path of your trained model.
 
 ```python
-test_data = gr.ToGraph(smiles = smiles_test, y = y).process() 
+test_data = gr.ToGraph(smiles = smiles_test).process() 
 GE = gr.GraphEnc(X = test_data, model_name = 'madel path')
 predictions = GE.predict()
 ```
