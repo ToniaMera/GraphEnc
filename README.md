@@ -8,3 +8,5 @@ The model utilizes a modular neural network which consitutes of a graph convolut
 The addition of an encoder together with the graph nn decreases both the training and the validation loss and most importantly it stabilizes the validation loss.
 
 ![Figure 2024-04-25 113437](https://github.com/ToniaMera/GraphEnc/assets/77622398/a6fa83d4-5654-44c3-b9f9-40a61308adef)
+
+<span style="font-size:3em;">How to use the model to make predictions</span>
