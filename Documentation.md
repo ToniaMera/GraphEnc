@@ -17,7 +17,7 @@ MD: a matrix containing molecular descriptors e.g. the output of mol_descriptors
 Node features that are used: atom type, atom charge, hybridization, degree, number of hydrogen atoms, stereochemistry, atom mass, is aromatic, is in ring. Each feature is transformed into one hot encoder and they are concatenated into a binary vector.
 '''
 
-TrainModel(train_data, batch_sz, epochs, model_name, Xy_eval = None)
+TrainModel(train_data, batch_sz, epochs, model_name, Xy_eval = None).train(print_loss = True)
 
 '''
 This class automates the training and validation process of the GraphEnc model that is defined by the GNN() class (see below).
@@ -27,6 +27,8 @@ batch_sz: defines batch size
 epochs: number of epochs
 model_name: the path of the model to be saved to
 Xy_eval: validation dataset of Data type. Default None for no validation
+
+print loss: False to block printing the epochs and losses. Default True
 '''
 
 GraphEnc(X, model_name = 'GraphEnc.pt')
