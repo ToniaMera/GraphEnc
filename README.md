@@ -26,6 +26,13 @@ when the installation has been succesfully completed import the package.
 ```python
 from graph_encoder_module import graphenc as gr
 ```
+# Dependencies
+
+Install dependencies:
+
+```python
+pip install torch rdkit numpy torch_geometric
+```
 
 # How to use the pretrained model to make predictions.
 ## 1. Prepare your data:
