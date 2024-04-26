@@ -13,21 +13,27 @@ from rdkit.Chem import Descriptors
 class ToGraph(Dataset):
     def __init__(self, smiles, y = None, MD = None):
         self.smiles = smiles
-        self.y = list(y)
+        self.y = y
         self.MD = MD
         self.all_data = []
 
     def process(self):
         c = 0
         for smile in self.smiles:
+            
             mol = Chem.MolFromSmiles(smile)
             nf = self.node_features(mol)
             ei = self.edge_features(mol)
-            if self.MD is not None:
+            if self.MD is not None and self.y is not None:
                 md = self.MD[c]
                 data = Data(x = nf, edge_index = ei, y = self.y[c], md = md)
-            else:
+            elif self.MD is None and self.y is not None:
                 data = Data(x = nf, edge_index = ei, y = self.y[c])
+            elif self.MD is not None and self.y is None:
+                data = Data(x = nf, edge_index = ei, md = md)
+            else:
+                data = Data(x = nf, edge_index = ei)
+                
             self.all_data.append(data)
             c+=1
             
