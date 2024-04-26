@@ -21,4 +21,6 @@ MD = mol_descriptors(smiles).oned()
 
 Next create the graph data:
 
+```python
 GD = ToGraph(smiles = smiles, MD = MD).process()  
+```
