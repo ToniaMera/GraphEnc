@@ -51,7 +51,8 @@ GraphData = gr.ToGraph(smiles = smiles, y = y, MD = MD).process()
 ## 2. Train the model:
 
 ```python
-tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_epochs, Xy_eval = val_data, model_name='model name')
+tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_epochs,
+  Xy_eval = val_data, model_name='model name')
 ```
 
 
