@@ -16,13 +16,13 @@ The addition of an encoder together with the graph nn decreases both the trainin
 # How to use the model to make predictions
 ## 1. Prepare your data:
 
-The preparation of data is easy since it only requires to steps. First create the matrix for molecular descriptors as:
+The preparation of data only requires to steps. First create the matrix for molecular descriptors as:
 
 ```python
 MD = mol_descriptors(smiles).oned()
 ```
 
-Next create the graph data:
+... and next create the graph data:
 
 ```python
 GraphData = ToGraph(smiles = smiles, MD = MD).process()  
@@ -30,7 +30,7 @@ GraphData = ToGraph(smiles = smiles, MD = MD).process()
 
 ## 2. Make predictions 
 
-The predictions are made with the pretrained model.
+To make predictions with your data can be done with two lines of code:
 
 ```python
 GE = GraphEnc(Graph_Data)
