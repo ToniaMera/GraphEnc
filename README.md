@@ -21,6 +21,11 @@ To install the package use the following command:
 ```python
 pip install git+https://github.com/ToniaMera/GraphEnc.git
 ```
+when the installation has been completed succesfully import the package.
+
+```python
+from graph_encoder_module import graphenc as ge
+```
 
 # How to use the pretrained model to make predictions.
 ## 1. Prepare your data:
