@@ -33,7 +33,7 @@ GraphData = ToGraph(smiles = smiles, MD = MD).process()
 To make predictions with your data can be done with two lines of code:
 
 ```python
-GE = GraphEnc(Graph_Data)
+GE = GraphEnc(X = Graph_Data)
 predictions = GE.predict()
 ```
 
@@ -80,8 +80,8 @@ training_losses = tm.train()
 Use the test data and the path of the model.
 
 ```python
-GE = gr.GraphEnc(test_Xy, model_name = 'madel path')
-pr = GE.predict()
+GE = GraphEnc(X = test_data, model_name = 'madel path')
+predictions = GE.predict()
 ```
 
 
