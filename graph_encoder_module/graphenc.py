@@ -168,7 +168,7 @@ class GNN(nn.Module):
             
             
 class TrainModel():
-    def __init__(self, train_data, batch_sz, epochs, Xy_eval = None, model_name = 'GraphEnc.pt'):
+    def __init__(self, train_data, batch_sz, epochs, model_name, Xy_eval = None):
         self.train_data = train_data
         self.batch_sz = batch_sz
         self.epochs = epochs
