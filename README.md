@@ -50,9 +50,27 @@ GraphData = gr.ToGraph(smiles = smiles, y = y, MD = MD).process()
 
 ## 2. Train the model:
 
+Initialize the process:
+
 ```python
 tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_epochs,
   Xy_eval = val_data, model_name='model name')
 ```
+...and train the GraphEnc model. It also returns the all losses over the epochs for further data analysis.
+
+```python
+training_losses, validation_losses = tm.train()
+```
+or without using validation data:
+
+```python
+tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_epochs,
+  model_name='model name')
+training_losses = tm.train()
+```
+
+
+
+
 
 
