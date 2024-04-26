@@ -27,3 +27,11 @@ Next create the graph data:
 ```python
 GD = ToGraph(smiles = smiles, MD = MD).process()  
 ```
+
+Else without the molecular descriptors:
+
+```python
+GD = ToGraph(smiles = smiles).process()  
+```
+
+
