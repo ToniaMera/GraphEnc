@@ -41,7 +41,7 @@ predictions = GE.predict()
 
 ## 1. Prepare your data:
 
-Process data as reviously shown but also include the true values y:
+Process data as previously shown but also include the true values y:
 
 ```python
 MD = gr.mol_descriptors(smiles).oned()
@@ -51,7 +51,6 @@ GraphData = gr.ToGraph(smiles = smiles, y = y, MD = MD).process()
 There is also the possibility of not including the encoder submodule in which case the pipeline changes as it follows (exclude MD data):
 
 ```python
-MD = gr.mol_descriptors(smiles).oned()
 GraphData = gr.ToGraph(smiles = smiles, y = y).process()  
 ```
 
@@ -61,14 +60,14 @@ Initialize the process:
 
 ```python
 tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_epochs,
-  Xy_eval = val_data, model_name='model name')
+  Xy_eval = val_data, model_name='model path')
 ```
-...and train the GraphEnc model. It also returns the all losses over the epochs for further data analysis.
+...and train the GraphEnc model. It also returns all losses over the epochs for further data analysis.
 
 ```python
 training_losses, validation_losses = tm.train()
 ```
-or without using validation data:
+... or without using validation data:
 
 ```python
 tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_epochs,
@@ -78,9 +77,12 @@ training_losses = tm.train()
 
 ##3. Make predictions:
 
-GE = gr.GraphEnc(test_Xy)
-pr = GE.predict()
+Use the test data and the path of the model.
 
+```python
+GE = gr.GraphEnc(test_Xy, model_name = 'madel path')
+pr = GE.predict()
+```
 
 
 
