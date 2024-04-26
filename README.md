@@ -24,7 +24,7 @@ pip install git+https://github.com/ToniaMera/GraphEnc.git
 when the installation has been completed succesfully import the package.
 
 ```python
-from graph_encoder_module import graphenc as ge
+from graph_encoder_module import graphenc as gr
 ```
 
 # How to use the pretrained model to make predictions.
@@ -33,13 +33,13 @@ from graph_encoder_module import graphenc as ge
 The preparation of data only requires to steps. First create the matrix for molecular descriptors as:
 
 ```python
-MD = mol_descriptors(smiles).oned()
+MD = gr.mol_descriptors(smiles).oned()
 ```
 
 ... and next create the graph data:
 
 ```python
-GraphData = ToGraph(smiles = smiles, MD = MD).process()  
+GraphData = gr.ToGraph(smiles = smiles, MD = MD).process()  
 ```
 
 ## 2. Make predictions 
@@ -47,7 +47,7 @@ GraphData = ToGraph(smiles = smiles, MD = MD).process()
 To make predictions with your data can be done with two lines of code:
 
 ```python
-GE = GraphEnc(X = Graph_Data)
+GE = gr.GraphEnc(X = Graph_Data)
 predictions = GE.predict()
 ```
 
@@ -94,7 +94,7 @@ training_losses = tm.train()
 Use the test data and the path of the model.
 
 ```python
-GE = GraphEnc(X = test_data, model_name = 'madel path')
+GE = gr.GraphEnc(X = test_data, model_name = 'madel path')
 predictions = GE.predict()
 ```
 
