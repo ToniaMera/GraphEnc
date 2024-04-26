@@ -9,4 +9,4 @@ The addition of an encoder together with the graph nn decreases both the trainin
 
 ![Figure 2024-04-25 113437](https://github.com/ToniaMera/GraphEnc/assets/77622398/a6fa83d4-5654-44c3-b9f9-40a61308adef)
 
-<span style="font-size:3em;">How to use the model to make predictions</span>
+## How to use the model to make predictions
