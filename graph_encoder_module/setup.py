@@ -8,5 +8,5 @@ setup(
     author='Tonia Mera',
     author_email='antwniame@gmail.com',
     description='GraphEnc model for lipophilicity prediction',
-    url='https://github.com/ToniaMera/GraphEnc',
+    url='https://github.com/ToniaMera/GraphEnc/graph_encoder_module',
 )
