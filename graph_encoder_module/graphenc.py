@@ -13,7 +13,7 @@ from rdkit.Chem import Descriptors
 class ToGraph(Dataset):
     def __init__(self, smiles, y = None, MD = None):
         self.smiles = smiles
-        self.y = y
+        self.y = list(y)
         self.MD = MD
         self.all_data = []
 
