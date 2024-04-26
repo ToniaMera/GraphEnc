@@ -17,7 +17,7 @@ MD: a matrix containing molecular descriptors e.g. the output of mol_descriptors
 Node features that are used: atom type, atom charge, hybridization, degree, number of hydrogen atoms, stereochemistry, atom mass, is aromatic, is in ring. Each feature is transformed into one hot encoder and they are concatenated into a binary vector.
 '''
 
-TrainModel(train_data, batch_sz, epochs, Xy_eval = None, model_name = 'GraphEnc.pt')
+TrainModel(train_data, batch_sz, epochs, model_name, Xy_eval = None)
 
 '''
 train_data: training data of Data type or the output of ToGraph.
