@@ -13,6 +13,15 @@ The addition of an encoder together with the graph nn decreases both the trainin
     <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/a6fa83d4-5654-44c3-b9f9-40a61308adef" width="500" height="300">
 </p>
 
+# Installation instructions
+
+To install the package use the following command:
+
+
+```python
+pip install git+https://github.com/ToniaMera/GraphEnc.git
+```
+
 # How to use the pretrained model to make predictions.
 ## 1. Prepare your data:
 
