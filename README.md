@@ -39,5 +39,10 @@ predictions = GE.predict()
 
 # How to train/validate your own model with the GraphEnc architecture.
 
+Process data as reviously shown but also include the true values y:
 
+```python
+MD = gr.mol_descriptors(smiles).oned()
+GraphData = gr.ToGraph(smiles = smiles, y = y, MD = MD).process()  
+```
 
