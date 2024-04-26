@@ -75,7 +75,7 @@ tm = gr.TrainModel(train_data = train_data, batch_sz = batch_size, epochs = num_
 training_losses = tm.train()
 ```
 
-##3. Make predictions:
+## 3. Make predictions:
 
 Use the test data and the path of the model.
 
