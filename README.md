@@ -13,7 +13,7 @@ The addition of an encoder together with the graph nn decreases both the trainin
     <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/a6fa83d4-5654-44c3-b9f9-40a61308adef" width="500" height="300">
 </p>
 
-# How to use the model to make predictions
+# How to use the pretrained model to make predictions.
 ## 1. Prepare your data:
 
 The preparation of data only requires to steps. First create the matrix for molecular descriptors as:
@@ -36,5 +36,8 @@ To make predictions with your data can be done with two lines of code:
 GE = GraphEnc(Graph_Data)
 predictions = GE.predict()
 ```
+
+# How to train/validate your own model with the GraphEnc architecture.
+
 
 
