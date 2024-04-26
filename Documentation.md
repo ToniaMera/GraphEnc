@@ -12,5 +12,6 @@ smiles: a list/numpy array/pandas series of smiles
 y: true values for training/validation
 MD: a matrix containing molecular descriptors e.g. the output of mol_descriptors()
 
-None features that are used: 
+None features that are used:
+'''
 ```
