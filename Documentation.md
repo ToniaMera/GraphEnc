@@ -14,13 +14,16 @@ smiles: a list/numpy array/pandas series of smiles
 y: true values for training/validation. Must be list or numpy array. Default None
 MD: a matrix containing molecular descriptors e.g. the output of mol_descriptors(). Default None
 
-Node features that are used: atom type, atom charge, hybridization, degree, number of hydrogen atoms, stereochemistry, atom mass, is aromatic, is in ring. Each feature is transformed into one hot encoder and they are concatenated into a binary vector.
+Node features that are used: atom type, atom charge, hybridization, degree, number of hydrogen atoms,
+stereochemistry, atom mass, is aromatic, is in ring. Each feature is transformed into one hot encoder
+ and they are concatenated into a binary vector.
 '''
 
 TrainModel(train_data, batch_sz, epochs, model_name, Xy_eval = None).train(print_loss = True)
 
 '''
-This class automates the training and validation process of the GraphEnc model that is defined by the GNN() class (see below).
+This class automates the training and validation process of the GraphEnc model that
+is defined by the GNN() class (see below).
 
 train_data: training data of Data type or the output of ToGraph.
 batch_sz: defines batch size
