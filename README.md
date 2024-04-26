@@ -76,7 +76,7 @@ Initialize the process:
 tm = gr.TrainModel(train_data = Graph_Data, batch_sz = batch_size, epochs = num_epochs,
   Xy_eval = val_data, model_name='model path')
 ```
-...and train the GraphEnc model. It also returns all losses over the epochs for further data analysis.
+...and train the GraphEnc model. The class stores and returns all losses over the epochs for further data analysis.
 
 ```python
 training_losses, validation_losses = tm.train()
