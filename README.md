@@ -98,8 +98,6 @@ test_data = gr.ToGraph(smiles = smiles_test, y = y).process()
 GE = gr.GraphEnc(X = test_data, model_name = 'madel path')
 predictions = GE.predict()
 ```
-Please read the documentation for more detail about the functions and the corresponding arguments.
-
 
 
 
