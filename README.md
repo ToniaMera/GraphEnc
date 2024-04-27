@@ -106,5 +106,5 @@ GE = gr.GraphEnc(X = test_data, model_name = 'madel path')
 predictions = GE.predict()
 ```
 
-
+Please read the documentation.md file for more information about the functions and the arguments.
 
