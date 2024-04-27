@@ -9,7 +9,6 @@ from torch_geometric.nn import global_max_pool
 from rdkit.ML.Descriptors import MoleculeDescriptors
 from rdkit.Chem import Descriptors
 
-
 class ToGraph(Dataset):
     def __init__(self, smiles, y = None, MD = None):
         self.smiles = smiles
@@ -113,6 +112,12 @@ class mol_descriptors():
             md.append(morgdesc)
         
         MD = torch.tensor(md,dtype = torch.float)
+        
+        for i in range(MD.shape[1]):
+            MD[:,i] = (MD[:,i] - torch.min(MD[:,i]))/(torch.max(MD[:,i]) - torch.min(MD[:,i]))
+            
+        MD[torch.isnan(MD)] = 0
+        
         return MD
         
 class GNN(nn.Module):
@@ -173,6 +178,7 @@ class GNN(nn.Module):
         
         return y
             
+
 class weighted_MSELoss(nn.Module):
     def __init__(self, train_data, num_intervals):
         super().__init__()
@@ -205,10 +211,11 @@ class weighted_MSELoss(nn.Module):
         mse = ws * (preds - targets)**2
         mse = torch.mean(mse)
         return mse
-
-
+    
+        
 class TrainModel():
-    def __init__(self, train_data, batch_sz, epochs, model_name, Xy_eval = None):
+    def __init__(self, train_data, batch_sz, epochs, model_name = None, 
+                 Xy_eval = None, L = 'imbalance'):
         self.train_data = train_data
         self.batch_sz = batch_sz
         self.epochs = epochs
@@ -222,12 +229,16 @@ class TrainModel():
         except AttributeError:
             self.model = GNN(self.train_data[0].num_node_features)
             
-        self.criterion = weighted_MSELoss(self.train_data, 5)
+        if L == 'imbalance':
+            self.criterion = weighted_MSELoss(self.train_data, 5)
+        elif L == 'balance':
+            self.criterion = nn.MSELoss()
+            
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         
     def custom_collate(self, batch):
         return Batch.from_data_list(batch)
-    
+
     def train(self, print_loss = True):
         
         all_losses = []
@@ -292,15 +303,16 @@ class TrainModel():
                                                    torch.tensor(true_values))
                         ls_eval += eval_loss
                     all_losses_eval.append(ls_eval/len(self.Xy_eval))
-                    
-        torch.save(self.model.state_dict(), self.model_name)
+        
+        if self.model_name is not None:
+            torch.save(self.model.state_dict(), self.model_name)
         if self.Xy_eval is not None:
             return (all_losses, all_losses_eval)
         else:
             return (all_losses)
         
 class GraphEnc():
-    def __init__(self, X, model_name = 'GraphEnc.pt'):
+    def __init__(self, X, model_name = 'graph_enc_model.pt'):
         self.X = X
         self.model_name = model_name
         self.model = GNN(self.X[0].num_node_features, self.X[0].md.shape[0])
