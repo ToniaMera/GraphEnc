@@ -13,7 +13,8 @@ from rdkit.Chem import Descriptors
 class ToGraph(Dataset):
     def __init__(self, smiles, y = None, MD = None):
         self.smiles = smiles
-        self.y = y
+        if y is not None:
+            self.y = list(y)
         self.MD = MD
         self.all_data = []
 
@@ -68,7 +69,7 @@ class ToGraph(Dataset):
                 
             node_feats.append((
                 *self.one_hot_encoding(str(atom.GetSymbol()), 
-                                       ['C', 'N', 'O', 'F', 'P', 'S', 'I', 'K', 'Cl', 'Br', 'Mg', 'Na']), 
+                    ['C', 'N', 'O', 'F', 'P', 'S', 'I', 'K', 'Cl', 'Br', 'Mg', 'Na']), 
                 *self.one_hot_encoding(atom.GetFormalCharge(), [i for i in range(-3, 4)]), 
                 *self.one_hot_encoding(str(atom.GetHybridization()), ['S', 'SP', 'SP2', 'SP3', 'SP3D', 'SP3D2', 'OTHER']),  
                 *self.one_hot_encoding(atom.GetDegree(), [i for i in range(5)]),
