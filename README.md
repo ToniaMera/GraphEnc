@@ -13,7 +13,7 @@ The addition of an encoder together with the graph nn decreases both the trainin
     <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/424bf77e-1c79-495f-9a9d-86519a3037c5" width="600" height="200">
 </p>
 
-LogP values are higly skewed which affects the distribution of predicted values as can be seen in the figure above. For this reason an imbalanced MSE loss was utilized. The true values are split equally in 5 intervals and the number of values that lie in each interval is taken and is represented in a vector as v. Then the weights are calculated as W = max(v)/v. 
+LogP values are higly skewed which affects the distribution of predicted values as can be seen in the figure above. For this reason an imbalanced MSE loss was utilized. The true values are split equally in 5 intervals and the number of values that lie in each interval is taken and is represented in a vector as **v**. Then the weights are calculated as W = max(v)/v. 
 
 # Installation instructions
 
