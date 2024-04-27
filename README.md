@@ -7,11 +7,12 @@ The model utilizes a modular neural network which consitutes of a graph convolut
   <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/4a7bdaea-5fa0-4459-9690-89353054d39c" width="900" height="350">
 </p>
 
-The addition of an encoder together with the graph nn decreases both the training and the validation loss and most importantly it highly stabilizes the validation loss as can be seen in the left figure below. The true and predicted logP values are shown in the right figure, where the blue line represents the y = x equation.
+The addition of an encoder together with the graph nn decreases both the training and the validation loss and most importantly it highly stabilizes the validation loss as can be seen in the left figure below. 
 
 <p align="center">
-    <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/424bf77e-1c79-495f-9a9d-86519a3037c5" width="600" height="200">
+  <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/ec9a1692-791e-40d0-b1f7-de2ad56dfd3e" width="400" height="350">
 </p>
+
 
 LogP values are higly skewed which affects the distribution of predicted values, as can be seen in the figure above. For this reason an imbalanced MSE loss was utilized. The true values are split equally in 5 intervals and the number of values that lie in each interval is taken and they are represented in a vector form as: **v**. Then the weights are calculated as: **W** = max(**v**)/**v**. 
 
