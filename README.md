@@ -97,6 +97,12 @@ tm = gr.TrainModel(train_data = Graph_Data, batch_sz = batch_size, epochs = num_
   model_name='model name')
 training_losses = tm.train()
 ```
+To print the model architecture
+
+```python
+tm.model
+```
+
 There is no need to explicitly define wether to train the graphenc model or only the graph convolutional model. The class detects if data of molecular descriptors are available and trains the corresponding model.
 ## 3. Make predictions:
 
