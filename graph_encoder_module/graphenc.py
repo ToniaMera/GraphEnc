@@ -9,6 +9,7 @@ from torch_geometric.nn import global_max_pool
 from rdkit.ML.Descriptors import MoleculeDescriptors
 from rdkit.Chem import Descriptors
 
+
 class ToGraph(Dataset):
     def __init__(self, smiles, y = None, MD = None):
         self.smiles = smiles
@@ -177,45 +178,10 @@ class GNN(nn.Module):
         y = self.decoder(x)
         
         return y
-            
-
-class weighted_MSELoss(nn.Module):
-    def __init__(self, train_data, num_intervals):
-        super().__init__()
-        self.train_data = train_data
-        self.num_intervals = num_intervals
-        
-        self.ys = torch.tensor([df.y for df in self.train_data])
-        step = (max(self.ys) - min(self.ys)) / self.num_intervals
-        self.ints = torch.arange(min(self.ys), max(self.ys) + step, step)
-        self.weights = self.W()
-        
-    def W(self,):
-
-        ns = []
-        for i in range(self.ints.shape[0] - 1):
-            flt = (self.ys >= self.ints[i]) & (self.ys <  self.ints[i+1]) 
-            ns.append(self.ys[flt].shape[0])
-        weights = max(ns)/np.array(ns)
-        weights = torch.tensor(weights, dtype = torch.float)
-        return weights
-        
-    def forward(self, preds, targets):
-        lower_bounds = self.ints[0:-1].reshape(-1, 1)
-        upper_bounds = self.ints[1:].reshape(-1, 1)
-        
-        flt = (lower_bounds < targets) & (upper_bounds >= targets)
-        dot = self.weights * flt.T
-        ws = torch.sum(dot, dim = 1)
-
-        mse = ws * (preds - targets)**2
-        mse = torch.mean(mse)
-        return mse
-    
         
 class TrainModel():
     def __init__(self, train_data, batch_sz, epochs, model_name = None, 
-                 Xy_eval = None, L = 'imbalance'):
+                 Xy_eval = None):
         self.train_data = train_data
         self.batch_sz = batch_sz
         self.epochs = epochs
@@ -229,11 +195,8 @@ class TrainModel():
         except AttributeError:
             self.model = GNN(self.train_data[0].num_node_features)
             
-        if L == 'imbalance':
-            self.criterion = weighted_MSELoss(self.train_data, 5)
-        elif L == 'balance':
-            self.criterion = nn.MSELoss()
-            
+
+        self.criterion = nn.MSELoss()
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         
     def custom_collate(self, batch):
@@ -334,3 +297,4 @@ class GraphEnc():
                 y_pred = self.model(x1, ed, data_point.batch, x2)
                 predicted_values.append(y_pred.item())
         return predicted_values
+    
