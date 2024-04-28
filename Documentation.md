@@ -47,5 +47,6 @@ GNN(input_fea, input_fea2 = None)
 
 input_fea: number of node features
 input_fea2: number of molecular descriptors
+'''
 
 ```
