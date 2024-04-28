@@ -181,7 +181,7 @@ class GNN(nn.Module):
             
 class TrainModel():
     def __init__(self, train_data, batch_sz, epochs, model_name = None, 
-                 Xy_eval = None, L = 'imbalance'):
+                 Xy_eval = None):
         self.train_data = train_data
         self.batch_sz = batch_sz
         self.epochs = epochs
@@ -236,7 +236,7 @@ class TrainModel():
             all_losses.append(ls/k)
             
             if print_loss:
-                print('Epoch [{}/{}], Loss_class: {:.4f}'.format(epoch+1, self.epochs, ls/k))
+                print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, self.epochs, ls/k))
                 
             if self.Xy_eval is not None:
 
@@ -276,7 +276,7 @@ class TrainModel():
             return (all_losses)
         
 class GraphEnc():
-    def __init__(self, X, model_name = 'graph_enc_model.pt'):
+    def __init__(self, X, model_name = 'GraphEnc.pt'):
         self.X = X
         self.model_name = model_name
         self.model = GNN(self.X[0].num_node_features, self.X[0].md.shape[0])
