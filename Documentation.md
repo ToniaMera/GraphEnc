@@ -25,7 +25,7 @@ TrainModel(train_data, batch_sz, epochs, model_name, Xy_eval = None).train(print
 This class automates the training and validation process of the GraphEnc model that
 is defined by the GNN() class (see below).
 
-train_data: training data of Data type or the output of ToGraph.
+train_data: list of Data type object instances or the output of ToGraph.
 batch_sz: defines batch size
 epochs: number of epochs
 model_name: the path of the model to be saved to
