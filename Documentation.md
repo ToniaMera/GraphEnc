@@ -1,7 +1,7 @@
 ```python
 mol_descriptors(smiles)
 
-'''Produces the following descriptors: Descriptors._descList from rdkit.
+'''Produces the following descriptors: Descriptors._descList from rdkit. Data are normalized and Nan values, due to 0 variance, are set to 0.
 
 smiles: a list/numpy array/pandas series of smiles
 '''
