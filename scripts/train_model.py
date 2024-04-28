@@ -13,8 +13,8 @@ md = gr.mol_descriptors(data['Drug']).oned()
 
 tg = gr.ToGraph(data['Drug'], data['Y'], md).process()  
 train_Xy, test_Xy = train_test_split(tg, test_size=0.2, random_state=42)
-tm = gr.TrainModel(train_data = train_Xy, batch_sz = 24, epochs = 100, 
-                    model_name='graph_enc_model.pt', L = 'imbalance')
+tm = gr.TrainModel(train_data = train_Xy, batch_sz = 24, epochs = 200, 
+                    model_name='graph_enc_model.pt')
 tm.train()
 
 GE = gr.GraphEnc(test_Xy, 'graph_enc_model.pt')
