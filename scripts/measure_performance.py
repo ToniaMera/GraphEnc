@@ -18,7 +18,7 @@ r2s = []
 
 tg = gr.ToGraph(data['Drug'], data['Y'], md).process()  
 
-for i in range(20):
+for i in range(15):
     train_Xy, test_Xy = train_test_split(tg, test_size=0.2, random_state=42)
     tm = gr.TrainModel(train_data = train_Xy, batch_sz = 24, epochs = 100, 
                        model_name='model{}.pt'.format(i))
