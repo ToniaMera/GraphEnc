@@ -1,7 +1,7 @@
 # GraphEnc
 Prediction of lipophilicity with graph convolutional neural networks.
 
-The model utilizes a modular neural network which consitutes of a graph convolutional neural network that processes the node features and a feed forward network, refered as encoder here, responsible for processing molecular descriptors. A graph level mean pooling operation is applied in the output of the GCN and is aggragated with the output of the encoder by addition. The aggragated vector is processed by another feed forward neural network wich predicts the logP value of a compound. An abstract depiction is shown in the left subfigure below and an oversimplified version of the pytorch model is shown in the right subfigure. The last layer is linear without an activation function, thus is suitable for regression.
+The model utilizes a modular neural network which consitutes of a graph convolutional neural network that processes the node features and a feed forward network, refered as encoder here, responsible for processing molecular descriptors. A graph level mean pooling operation is applied in the output of the GCN and is aggragated with the output of the encoder by addition. The aggragated vector is processed by another feed forward neural network wich predicts the logP value of a compound. An abstract depiction is shown in the left subfigure below and an oversimplified version of the pytorch model is shown in the right subfigure. The last layer is linear without an activation function, thus designed for regression.
 
 <p align="center">
   <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/4a7bdaea-5fa0-4459-9690-89353054d39c" width="900" height="350">
