@@ -178,10 +178,10 @@ class GNN(nn.Module):
         y = self.decoder(x)
         
         return y
-        
+            
 class TrainModel():
     def __init__(self, train_data, batch_sz, epochs, model_name = None, 
-                 Xy_eval = None):
+                 Xy_eval = None, L = 'imbalance'):
         self.train_data = train_data
         self.batch_sz = batch_sz
         self.epochs = epochs
@@ -197,6 +197,7 @@ class TrainModel():
             
 
         self.criterion = nn.MSELoss()
+
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
         
     def custom_collate(self, batch):
