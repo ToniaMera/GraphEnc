@@ -29,7 +29,7 @@ train_data: list of Data type object instances or the output of ToGraph.
 batch_sz: defines batch size
 epochs: number of epochs
 model_name: the path of the model to be saved to
-Xy_eval: validation dataset of Data type. Default None for no validation
+Xy_eval: list of Data type object instances. Default None for no validation
 
 print loss: False to block printing the epochs and losses. Default True
 '''
