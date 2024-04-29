@@ -15,7 +15,7 @@ The addition of an encoder together with the graph neural network decreases both
   <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/ec9a1692-791e-40d0-b1f7-de2ad56dfd3e" width="500" height="350">
 </p>
 
-To estimate the performance of the model the following metrics were utilizrd: Root Mean Squared Error (RMSE), R2 and Mean Absolute Error (MAE). The results are shown in the figure below.
+To estimate the performance of the model the following metrics were utilized: Root Mean Squared Error (RMSE), R2 and Mean Absolute Error (MAE). The results are shown in the figure below.
 
 <p align="center">
   <img src="https://github.com/ToniaMera/GraphEnc/assets/77622398/01160241-fefa-4c00-a1eb-8f5c0a9388ec", width = "550", heght="400">
