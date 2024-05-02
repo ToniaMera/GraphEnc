@@ -15,6 +15,8 @@ class ToGraph(Dataset):
         self.smiles = smiles
         if y is not None:
             self.y = list(y)
+        else:
+            self.y = None
         self.MD = MD
         self.all_data = []
 
