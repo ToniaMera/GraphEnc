@@ -29,11 +29,12 @@ class ToGraph(Dataset):
             ei = self.edge_features(mol)
             if self.MD is not None and self.y is not None:
                 md = self.MD[c]
-                data = Data(x = nf, edge_index = ei, y = self.y[c], md = self.MD)
+                data = Data(x = nf, edge_index = ei, y = self.y[c], md = md)
             elif self.MD is None and self.y is not None:
                 data = Data(x = nf, edge_index = ei, y = self.y[c])
             elif self.MD is not None and self.y is None:
-                data = Data(x = nf, edge_index = ei, md = self.MD)
+                md = self.MD[c]
+                data = Data(x = nf, edge_index = ei, md = md)
             else:
                 data = Data(x = nf, edge_index = ei)
                 
